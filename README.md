@@ -17,7 +17,7 @@ Python version 3.4 or higher required & Domoticz version 3.87xx or greater.
 To install:
 * Go in your Domoticz directory using a command line and open the plugins directory.
 * Run: ```git clone https://github.com/Xorfor/Domoticz-Pi-hole-Plugin.git```
-* Restart Domoticz.
+* Restart Domoticz with ```sudo systemctl restart domoticz```.
 
 In the web UI, navigate to the Hardware page. In the hardware dropdown there will be an entry called "Pi-hole summary".
 
@@ -25,7 +25,7 @@ In the web UI, navigate to the Hardware page. In the hardware dropdown there wil
 To update:
 * Go in your Domoticz directory using a command line and open the plugins directory then the Domoticz-Pi-hole-Plugin directory.
 * Run: ```git pull```
-* Restart Domoticz.
+* Restart Domoticz with ```sudo systemctl restart domoticz```.
 
 ## Parameters
 | Parameter | Value |
