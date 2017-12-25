@@ -9,6 +9,7 @@ This plugin is calling the Pi-hole API by using `http://<pihole adrress>/admin/a
 ```
 This plugin will create 10 devices. One of them is a switch (if the API Token is filled in) with which you can switch On or Off Pi-hole.
 The others devices gives you summary data from Pi-hole.
+
 ## Installation
 Python version 3.4 or higher required & Domoticz version 3.87xx or greater.
 To install:
@@ -16,7 +17,7 @@ To install:
 * Run: ```git clone https://github.com/Xorfor/Domoticz-Pi-hole-Plugin.git```
 * Restart Domoticz.
 
-In the web UI, navigate to the Hardware page. In the hardware dropdown there will be an entry called "Pi-hole".
+In the web UI, navigate to the Hardware page. In the hardware dropdown there will be an entry called "Pi-hole summary".
 
 ## Updating
 To update:
