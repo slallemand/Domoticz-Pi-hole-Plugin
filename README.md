@@ -1,7 +1,9 @@
 # Pi-hole Summary
-This Domoticz plugin retrieves data from Pi-hole, a black hole for internet advertisements.
+This Domoticz plugin retrieves data from Pi-hole, a black hole for internet advertisements. Also a switch is added to enable/disable Pi-hole on your network.
+
 ## Prerequisites
 You must have Pi-hole installed. See [`https://pi-hole.net/`](https://pi-hole.net/) for more information.
+
 ## Description
 This plugin is calling the Pi-hole API by using `http://<pihole adrress>/admin/api.php?summaryRaw`. This will return:
 ```
