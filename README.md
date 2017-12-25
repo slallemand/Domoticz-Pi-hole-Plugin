@@ -43,6 +43,6 @@ The API Token can be found in the Pi-hole web interface:
 
 Or from the command line `more /etc/pihole/setupVars.conf`, and look for the value of `WEBPASSWORD`.
 ## To do
-- [ ] Parameter for interval, with default is 15. Now requesting data every 5 minutes.
+- [ ] ~~Parameter for interval, with default is 15. Now requesting data every 5 minutes.~~
 - [x] Add Pi-hole images to the devices. For some reason not working yet
 - [x] Only the `_today` data is used. Add extra data and devices?
