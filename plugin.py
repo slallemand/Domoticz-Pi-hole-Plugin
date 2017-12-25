@@ -20,7 +20,7 @@
 import Domoticz
 import json
 
-_HEARTBEATS = 6 * 5  # 5 minutes
+_HEARTBEATS = 6 * 60  # 5 minutes
 
 _API_PATH = "admin/api.php"
 _API_SUMMARY = "summaryRaw"
