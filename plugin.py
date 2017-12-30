@@ -158,8 +158,9 @@ class BasePlugin:
             UpdateDevice(_ADS_BLOCKED_UNIT, jsonData[tag], str(jsonData[tag]))
         tag = "ads_percentage_today"
         if tag in jsonData:
-            Domoticz.Debug(tag+": " + str(jsonData[tag]))
-            UpdateDevice(_ADS_PERCENTAGE_UNIT, int(jsonData[tag]), str(jsonData[tag]))
+            perc = round( jsonData[tag], 2 )
+            Domoticz.Debug( tag + ": " + str( perc ) )
+            UpdateDevice( _ADS_PERCENTAGE_UNIT, int( perc ), str( perc ) )
 
         tag = "unique_domains"
         if tag in jsonData:
