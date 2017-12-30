@@ -20,7 +20,7 @@
 import Domoticz
 import json
 
-_HEARTBEATS = 6 * 5  # 5 minutes
+_HEARTBEATS = 6 * 60  # 5 minutes
 
 _API_PATH = "admin/api.php"
 _API_SUMMARY = "summaryRaw"
@@ -221,46 +221,37 @@ class BasePlugin:
 global _plugin
 _plugin = BasePlugin()
 
-
 def onStart():
     global _plugin
     _plugin.onStart()
-
 
 def onStop():
     global _plugin
     _plugin.onStop()
 
-
 def onConnect(Connection, Status, Description):
     global _plugin
     _plugin.onConnect(Connection, Status, Description)
-
 
 def onMessage(Connection, Data):
     global _plugin
     _plugin.onMessage(Connection, Data)
 
-
 def onCommand(Unit, Command, Level, Hue):
     global _plugin
     _plugin.onCommand(Unit, Command, Level, Hue)
-
 
 def onNotification(Name, Subject, Text, Status, Priority, Sound, ImageFile):
     global _plugin
     _plugin.onNotification(Name, Subject, Text, Status, Priority, Sound, ImageFile)
 
-
 def onDisconnect(Connection):
     global _plugin
     _plugin.onDisconnect(Connection)
 
-
 def onHeartbeat():
     global _plugin
     _plugin.onHeartbeat()
-
 
 ################################################################################
 # Generic helper functions
