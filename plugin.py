@@ -20,7 +20,7 @@
 import Domoticz
 import json
 
-_HEARTBEATS = 6 * 60  # 5 minutes
+_HEARTBEATS = 6 * 5  # 5 minutes
 
 _API_PATH = "admin/api.php"
 _API_SUMMARY = "summaryRaw"
@@ -69,7 +69,8 @@ class BasePlugin:
             Domoticz.Device(Unit=_DOMAINS_BLOCKED_UNIT, Name="Domains Blocked", TypeName="Custom", Options={"Custom": "1;"}, Used=1, Image=image).Create()
             Domoticz.Device(Unit=_DNS_QUERIES_UNIT, Name="DNS Queries", TypeName="Custom", Options={"Custom": "1;"}, Used=1, Image=image).Create()
             Domoticz.Device(Unit=_ADS_BLOCKED_UNIT, Name="Ads Blocked", TypeName="Custom", Options={"Custom": "1;"}, Used=1, Image=image).Create()
-            Domoticz.Device(Unit=_ADS_PERCENTAGE_UNIT, Name="Ads Percentage", TypeName="Percentage", Used=1, Image=image).Create()  # Image not working :(
+            # Domoticz.Device(Unit=_ADS_PERCENTAGE_UNIT, Name="Ads Percentage", TypeName="Percentage", Used=1, Image=image).Create()  # Image not working :(
+            Domoticz.Device(Unit=_ADS_PERCENTAGE_UNIT, Name="Ads Percentage", TypeName="Custom", Options={"Custom": "1;%"}, Used=1, Image=image).Create()  # Image not working :(
             # Following devices are NOT set on used. Can be done by user
             Domoticz.Device(Unit=_UNIQUE_DOMAINS_UNIT, Name="Unique Domains", TypeName="Custom", Options={"Custom": "1;"}, Image=image).Create()
             Domoticz.Device(Unit=_QUERIES_FORWARDED_UNIT, Name="Queries Forwarded", TypeName="Custom", Options={"Custom": "1;"}, Image=image).Create()
@@ -276,8 +277,6 @@ def DumpConfigToLog():
         Domoticz.Debug("Device nValue:    " + str(Devices[x].nValue))
         Domoticz.Debug("Device sValue:   '" + Devices[x].sValue + "'")
         Domoticz.Debug("Device LastLevel: " + str(Devices[x].LastLevel))
-    return
-
 
 def UpdateDevice(Unit, nValue, sValue, TimedOut=0, AlwaysUpdate=False):
     # Make sure that the Domoticz device still exists (they can be deleted) before updating it
@@ -285,4 +284,3 @@ def UpdateDevice(Unit, nValue, sValue, TimedOut=0, AlwaysUpdate=False):
         if Devices[Unit].nValue != nValue or Devices[Unit].sValue != sValue or Devices[Unit].TimedOut != TimedOut or AlwaysUpdate:
             Devices[Unit].Update(nValue=nValue, sValue=str(sValue), TimedOut=TimedOut)
             Domoticz.Debug("Update " + Devices[Unit].Name + ": " + str(nValue) + " - '" + str(sValue) + "'")
-    return
