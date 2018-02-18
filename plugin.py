@@ -98,7 +98,7 @@ class BasePlugin:
                 Domoticz.Device(Unit=self._UNITS["SWITCH"], Name="Status", TypeName="Switch", Used=1, Image=image).Create()
         Domoticz.Log( "Devices created." )
         DumpConfigToLog()
-        
+
         # Create connections
         self.__jsonConn = Domoticz.Connection( Name="Summary", Transport="TCP/IP", Protocol="HTTP", Address=Parameters["Address"], Port=Parameters["Port"] )
         self.__textConn = Domoticz.Connection( Name="RecentBlocked", Transport="TCP/IP", Protocol="HTTP", Address=Parameters["Address"], Port=Parameters["Port"] )
@@ -204,14 +204,13 @@ class BasePlugin:
             if tag in jsonData:
                 Domoticz.Debug(tag+": " + str(jsonData[tag]))
                 UpdateDevice(self._UNITS["UNIQUE_CLIENTS"], jsonData[tag], str(jsonData[tag]), AlwaysUpdate=True)
-            self.__jsonConn.Disconnect()
         if Connection.Name == "RecentBlocked":
             # Data available in plain text (not in json!)
             if strData != self.__blocked[0]:
                 self.__blocked[1] = self.__blocked[0]
                 self.__blocked[0] = strData
             UpdateDevice(self._UNITS["RECENTBLOCKED"], 0, self.__blocked[0] + "<br/>" + self.__blocked[1], AlwaysUpdate=self.__pihole_active)
-            self.__textConn.Disconnect()
+        Connection.Disconnect()
 
     def onCommand( self, Unit, Command, Level, Hue ):
         Domoticz.Debug( "onCommand called for Unit " + str(Unit) + ": Parameter "" + str(Command) + "", Level: " + str(Level))
