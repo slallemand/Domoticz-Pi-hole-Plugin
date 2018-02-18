@@ -6,7 +6,7 @@
 # Author: Xorfor
 #
 """
-<plugin key="xfr_pihole" name="Pi-hole summary" author="Xorfor" version="3.0.0" wikilink="https://github.com/Xorfor/Domoticz-Pi-hole-Plugin" externallink="https://pi-hole.net/">
+<plugin key="xfr_pihole" name="Pi-hole summary" author="Xorfor" version="3.0.1" wikilink="https://github.com/Xorfor/Domoticz-Pi-hole-Plugin" externallink="https://pi-hole.net/">
     <params>
         <param field="Address" label="Pi-hole address" width="200px" required="true" default="pi.hole"/>
         <param field="Port" label="Port" width="30px" required="true" default="80"/>
