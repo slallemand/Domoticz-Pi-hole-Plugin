@@ -241,6 +241,7 @@ class BasePlugin:
             self.__runAgain = self.__HEARTBEATS2MIN * self.__MINUTES
             # On heartbeat get summary
             self.__url = "/" + self._API_PATH + "?" + self._API_SUMMARY
+            self.__url += "&auth=" + Parameters["Mode1"]
             self.__jsonConn.Connect()
             self.__textConn.Connect()
         else:
